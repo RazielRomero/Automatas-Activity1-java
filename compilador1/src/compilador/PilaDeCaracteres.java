@@ -17,6 +17,14 @@ public class PilaDeCaracteres {
         return tope == -1;
     }
 
+    public int getIndiceDeTope(){
+        return tope;
+    }
+
+    /**
+     * Agrega un caracter al tope de la pila
+     * @param c
+     */
     public void agregarCaracter(char c){
         pila.add(c);
         tope++;
@@ -26,7 +34,7 @@ public class PilaDeCaracteres {
      * ADVERTENCIA: Metodo destructivo.
      * 
      * @return char 
-     * @throws NullPointerException
+     * @throws NullPointerException cuando la pila esta vacia.
      */
     public char getCaracterDeTope() throws NullPointerException {
         if(vacia()) throw new NullPointerException("La pila esta vacia");
@@ -35,11 +43,10 @@ public class PilaDeCaracteres {
         return c;
     }
 
-
     /**
      * ADVERTENCIA : Metodo no destructivo
      * @return char 
-     * @throws NullPointerException
+     * @throws NullPointerException cuando la pila esta vacia.
      */
     public char verToken() throws NullPointerException{
         if(vacia()) throw new NullPointerException("La pila esta vacia");

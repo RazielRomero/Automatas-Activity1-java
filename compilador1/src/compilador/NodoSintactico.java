@@ -9,6 +9,10 @@ public class NodoSintactico {
     private final Token token;
     private final boolean esTerminal;
 
+    /**
+     * Advertencia: usar solo en caso de que sea terminal
+     * @param token Token
+     */
     public NodoSintactico(Token token){
         this.nombre = token.getTipo();
         this.token = token;
@@ -16,6 +20,10 @@ public class NodoSintactico {
         esTerminal = true;
     }
 
+    /**
+     * Advertencia: usar solo en caso de que sea no terminal
+     * @param nombre String
+     */
     public NodoSintactico(String nombre){
         this.nombre = nombre;
         token = null;
@@ -36,8 +44,9 @@ public class NodoSintactico {
     }
 
     /**
-     * Devuelve todos los derivados
-     * ADVERTENCIA ES DESTRUCTIVO, es decir, si hay algo antes, lo borra
+     * Define todos los derivados (Advertencia: es destructivo, es decir, si hay algo
+     * antes, lo borra).
+     * 
      * @param derivados
      */
     public void setDerivados(ArrayList<NodoSintactico> derivados) {
@@ -48,14 +57,24 @@ public class NodoSintactico {
         return token;
     }
 
-    public boolean isEsTerminal() {
+    public boolean esTerminal() {
         return esTerminal;
     }
 
+    /**
+     * Agrega un derivado al final de la lista de derivados
+     * @param derivado NodoSintactico
+     */
     public void agregarDerivados(NodoSintactico derivado){
         derivados.add(derivado);
     }
 
+    /**
+     * Regresa el NodoSintactico que este en la posicion index dentro de la lista de
+     * derivados.
+     * @param index
+     * @return NodoSintactico
+     */
     public NodoSintactico getDerivado(int index){
         return derivados.get(index);
     }
@@ -63,6 +82,8 @@ public class NodoSintactico {
     /**
      * Dado un nombre retorno un arreglo con todos los NodoSintatico de dicho 
      * nombre que deriven del actual NodoSintactico
+     * @param nombre String
+     * @return ArrayList<NodoSintactico> por si hay mas de una coincidencia
      */
     public ArrayList<NodoSintactico> getDerivados(String nombre){
         ArrayList<NodoSintactico> d = new ArrayList<NodoSintactico>();

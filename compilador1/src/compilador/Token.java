@@ -29,18 +29,34 @@ public class Token {
         this.indiceComienzo = indiceComienzo;
     }
 
+    /**
+     * Devuelve que tira es concretamented (ejemplos: if, else, while, +=, double, 3.14, _n, etcetera).
+     * @return String 
+     */
     public String getToken() {
         return token;
     }
 
+    /**
+     * Establece que tira es concretamente (ejemplos: if, else, while, +=, double, 3.14, _n, etcetera).
+     * @param String token
+     */
     public void setToken(String token) {
         this.token = token;
     }
 
+    /**
+     * Regresa si es IDENTIFICADOR, NUMERO_LONG, NUMERO_DOUBLE, IF, ELSE o que token terminal.
+     * @return String 
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * Define si es IDENTIFICADOR, NUMERO_LONG, NUMERO_DOUBLE, IF, ELSE, o que token ternminal.
+     * @param tipo
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
